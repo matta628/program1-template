@@ -5,9 +5,8 @@
 #include "Vector.h"
 
 class Starvector{
- private:
-	Vector * star;
  public:
+	Vector * star;
 	Starvector();
 	~Starvector();
 	long addPlanet();

@@ -4,7 +4,9 @@
 class Vector{
 	private:
 		unsigned int current_planets;
+		
 	public:
+		Planet ** planets;
 		~Vector();
 		Vector();
 		void insert(int, Planet *);
