@@ -3,9 +3,9 @@
 
 class Vector{
 	private:
-		~Vector();
 		int current_planets;
 	public:
+		~Vector();
 		Vector();
 		void insert(int, Planet *);
 		Planet* read(int);

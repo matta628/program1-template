@@ -17,12 +17,11 @@ Vector::~Vector(){
 void Vector::insert(int index, Planet * p){
 	if (index < current_planets){
 		Planet ** updated = new Planet*[current_planets];
-		for (int i = 0; i < index; i++){
-			updated[i] = planets[i];
-		}
-		updated[index] = p;
-		for (int i = index+1; i < current_planets; i++){
-			updated[i] = planets[i];
+		for (int i = 0; i < current_planets; i++){
+			if (i != index)
+				updated[i] = planets[i];
+			else
+				updated[index] = p;
 		}
 		delete[] planets;
 		this->planets = updated;
