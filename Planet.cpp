@@ -25,6 +25,6 @@ int Planet::orbit(){
 }
 
 long Planet::getID(){
-	this->id = &this;
-	return this->id;
+    this->id = &this;
+    return this->id;
 }

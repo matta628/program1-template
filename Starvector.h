@@ -7,7 +7,7 @@
 
 class Starvector{
  private:
-	int current_planets;
+	Vector * star;
  public:
 	Starvector();
 	~Starvector();

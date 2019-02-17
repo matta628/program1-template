@@ -3,38 +3,61 @@
 #include "Planet.h"
 #include "Vector.h"
 
+#include <stdlib.h>
+#include <cstdio>
+
 Starvector::Starvector(){
-	//Initialize memory
-	Vector star = new Vector();
+	this->star = new Vector();
 }
 
 Starvector::~Starvector(){
-	//Deallocate all memory when the star is deleted.
 	delete star;
 }
 
 long Starvector::addPlanet(){
-	//Return the ID of the newly created Planet
-	return star.addPlanet();
+	Planet * p = new Planet(rand() % 3000 + 1);
+	star.insert(star->size(), p);
+	return p->getID();
 }
 
 bool Starvector::removePlanet(int id){
-	//Takes a Planet's ID as a parameter, and rmeoves the Planet from the Star.
-	//You must return ture upon successful deletion and false on failure if the ID isn't found
+	for (int i = star->size() - 1; i >= 0; i--){
+		if (star->read(i)->getID() == id){
+			star->remove(i);
+			return true;
+		}
+	}
+	return false;
 }
 
 Planet * Starvector::getPlanet(int id){
-	//Takes a Planet's ID and returns a pointer to the Planet. If the Planet is not found, it returns NULL
+	for (int i = star->size() -1; i >= 0; i++){
+		if (star->read(i)->getID() == id)
+			return star->read(i);
+	}
+	return NULL;
 }
 
 void Starvector::orbit(){
-	//Iterate through your planets and alter their orbit position by +1
+	for (int i = 0; i < star->size(); i++){
+		star->read(i)->orbit();
+	}
 }
 
 void Starvector::printStarInfo(){
-	//Prints the Star information
+	if (star->size() == 1){
+		printf("The star has 1 planet.\n");
+	}
+	else{
+		printf("The star has %d planets.\n", star->size());
+	}
+	printf("Planets:\n");
+	for (int i = 0; i < star->size(); i++){
+		printf("Planet %c%d is %d million miles away at position %d around the star.\n",
+			   star->read(i)->getType(), i, star->read(i)->getDistance(), star->read(i)->getPos());
+	}
 }
 
 unsigned int getCurrentNumPlanets(){
-	//Returns the current number of planets stored (the size of the vector)
+	return star->size();
 }
