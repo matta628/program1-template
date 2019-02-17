@@ -5,7 +5,6 @@
 
 Star::Star(){
 	this->current_planets = 0;
-	this->next_id = 0;
 	this->planets = NULL; //initialize planets array pointer to NULL
 }
 
@@ -26,7 +25,7 @@ int Star::addPlanet(){
 	updated[current_planets++] = p; //put new planet in new array and update num planets
 	delete[] planets; //deallocate old planets array pointer
 	this->planets = updated; //point planets to new array
-	return this->current_planets - 1;
+	return p->getID();
 }
 
 bool Star::removePlanet(int id){
