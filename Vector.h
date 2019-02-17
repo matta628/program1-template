@@ -3,7 +3,7 @@
 
 class Vector{
 	private:
-		int current_planets;
+		unsigned int current_planets;
 	public:
 		~Vector();
 		Vector();

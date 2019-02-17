@@ -2,7 +2,6 @@
 #define Starvector_H
 
 #include "Planet.h"
-#include "Star.h"
 #include "Vector.h"
 
 class Starvector{

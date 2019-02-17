@@ -62,7 +62,7 @@ bool Vector::remove(int index){
 	return false;
 }
 
-unsigned Vector::size(){
+unsigned int Vector::size(){
 	return this->current_planets;
 }
 

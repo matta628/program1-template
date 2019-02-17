@@ -1,5 +1,4 @@
 #include "Starvector.h"
-#include "Star.h"
 #include "Planet.h"
 #include "Vector.h"
 
