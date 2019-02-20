@@ -1,4 +1,7 @@
 #include "Vector.h"
+#include "Planet.h"
+#include <stdlib.h>
+#include <cstdio>
 
 Vector::Vector(){
 	this->planets = NULL;
@@ -47,7 +50,7 @@ bool Vector::remove(int index){
 	if (index >= 0 && index < current_planets){
 		Planet ** updated = new Planet*[--current_planets];
 		int updatedIndex = 0;
-		for (int i = 0; i < currentPlanets + 1; i++){
+		for (int i = 0; i < this->current_planets + 1; i++){
 			if (i == index){
 				delete planets[index];
 				planets[index] = NULL;
