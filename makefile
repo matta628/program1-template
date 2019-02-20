@@ -1,8 +1,8 @@
 P = program4
 CFLAGS = -Wall -Wextra -DDEBUG -g -std=c++14
-all: program4
+all: program1
 
-program4: Planet.o Star.o List.o
+program1: program1.o Planet.o Star.o List.o
 	g++ $(CFLAGS) Planet.o Star.o List.o -o program4
 
 Star.o: Star.cpp Star.h
@@ -10,10 +10,10 @@ Star.o: Star.cpp Star.h
 Planet.o: Planet.cpp Planet.h
 	g++ $(CFLAGS) -c Planet.cpp -o Planet.o
 List.o: List.cpp List.h
-	g++ $(CFLAGS) -c Star.cpp -o Star.o
+	g++ $(CFLAGS) -c List.cpp -o Star.o
 run: all
-	./program4
+	./program1
 memcheck:
-	valgrind ./program4
+	valgrind ./program1
 clean:
-	rm -rf program4
+	rm -rf program1

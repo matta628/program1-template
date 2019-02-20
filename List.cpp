@@ -1,10 +1,11 @@
 #include "List.h"
+#include "Planet.h"
 // Node
 Node::Node(){
-	this->head;
-	this->current;
-	this->prev;
-	this->next;
+	//this->head = NULL;
+	this->current = NULL;
+	this->prev = NULL;
+	this->next = NULL;
 }
 // List
 List::List(){
@@ -14,8 +15,10 @@ List::List(){
 }
 
 List::~List(){
-	for(int i = 0; i < this->current_planets; i++){
-		
+	Node current = this->head;
+	for(int i = 0; i < this->current_planets; i++){	
+		current = current->next;
+		delete current;
 	}
 	delete this->head;
 }
