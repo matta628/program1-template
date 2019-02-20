@@ -1,6 +1,8 @@
 P = program4
 CFLAGS = -Wall -Wextra -DDEBUG -g -std=c++14
 all: program4
+
+program4: Planet.o Star.o List.o
 	g++ $(CFLAGS) Planet.o Star.o List.o -o program4
 
 Star.o: Star.cpp Star.h
